@@ -8,7 +8,7 @@ export default defineConfig({
   html: {
     template: "./public/index.html",
   },
-  dev: { lazyCompilation: true },
+  // dev: { lazyCompilation: true },
   server: {
     headers: {
       "Access-Control-Allow-Origin": "*",

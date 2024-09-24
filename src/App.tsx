@@ -5,7 +5,7 @@ function App() {
   const [number, setNumber] = useState(35); // 设置一个较大的数来演示
   const [result, setResult] = useState(null);
   const [isWorkerRunning, setIsWorkerRunning] = useState(false);
-
+  console.log(error);
   useEffect(() => {
     // 创建 Worker 实例
     const worker = new Worker(
