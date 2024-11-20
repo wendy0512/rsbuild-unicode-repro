@@ -3,10 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@aaroon/workbox-rspack-plugin": "^0.3.2",
     "@loadable/component": "^5.16.4",
-    "@rsbuild/core": "^1.0.8",
-    "@rsbuild/plugin-react": "^1.0.2",
+    "@rsbuild/core": "^1.1.0",
+    "@rsbuild/plugin-less": "^1.1.0",
+    "@rsbuild/plugin-react": "^1.0.7",
+    "@rsbuild/plugin-styled-components": "^1.1.0",
     "@types/node": "^16.18.108",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
@@ -19,7 +20,7 @@
     "react-dom": "^17.0.0",
     "react-redux": "^7.2.9",
     "react-router-dom": "^5.3.4",
-    "styled-components": "^6.1.13",
+    "styled-components": "^5.3.11",
     "typescript": "^4.4.3",
     "use-immer": "^0.10.0",
     "web-vitals": "^2.1.4"
@@ -47,10 +48,9 @@
     ]
   },
   "devDependencies": {
-    "@rsbuild/plugin-less": "^1.0.1",
-    "@rsbuild/plugin-styled-components": "^1.0.1",
     "@types/lodash": "^4.17.7",
     "@types/react-router-dom": "^5.3.3",
+    "@types/styled-components": "^5.1.34",
     "compression-webpack-plugin": "^6.1.2",
     "postcss-flexbugs-fixes": "^5.0.2",
     "postcss-normalize": "^10.0.0",

@@ -1,53 +1,42 @@
-import React, { useState, useEffect } from "react";
+import styled from "styled-components";
 import "./App.less";
 
 function App() {
-  const [number, setNumber] = useState(35); // 设置一个较大的数来演示
-  const [result, setResult] = useState(null);
-  const [isWorkerRunning, setIsWorkerRunning] = useState(false);
-  useEffect(() => {
-    // 创建 Worker 实例
-    const worker = new Worker(
-      new URL("./workers/heavyTaskWorker.js", import.meta.url)
-    );
-
-    // 监听来自 Worker 的消息
-    worker.onmessage = (event) => {
-      setResult(event.data);
-      setIsWorkerRunning(false);
-      worker.terminate(); // 计算完成后终止 Worker
-    };
-
-    // 发送数据到 Worker
-    if (number !== null) {
-      setIsWorkerRunning(true);
-      worker.postMessage(number);
-    }
-
-    // 清理 Worker
-    return () => {
-      worker.terminate();
-    };
-  }, [number]);
-
-  const handleCalculate = () => {
-    setResult(null);
-    setNumber(35); // 你可以根据需要调整这个值
-  };
-
   return (
     <div className="App">
-      <h1>使用 Web Worker 的 Rsbuild 示例</h1>
-      <button onClick={handleCalculate} disabled={isWorkerRunning}>
-        {isWorkerRunning ? "计算中..." : "开始计算斐波那契数"}
-      </button>
-      {result !== null && (
-        <p>
-          斐波那契数（第 {number} 项）是: <strong>{result}</strong>
-        </p>
-      )}
+      <h1>使用 Unicode 的 Rsbuild 示例</h1>
+      <div>
+        <span className="icons iconfont">less中的unicode编码</span>
+      </div>
+      <div>
+        <IconStyleWrapper className="iconfont">
+          测试styled-components中的unicode编码
+        </IconStyleWrapper>
+      </div>
+      <div>
+        <UnicodeStyleWrapper className="iconfont">
+          测试styled-components中的完整unicode编码
+        </UnicodeStyleWrapper>
+      </div>
     </div>
   );
 }
+
+const IconStyleWrapper = styled.span`
+  &::after {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    content: "\e67f";
+  }
+`;
+const UnicodeStyleWrapper = styled.span`
+  &::after {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    content: "\ue67f";
+  }
+`;
 
 export default App;
